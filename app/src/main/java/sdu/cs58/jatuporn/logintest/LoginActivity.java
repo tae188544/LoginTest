@@ -1,5 +1,7 @@
 package sdu.cs58.jatuporn.logintest;
 
+import android.app.PictureInPictureParams;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,11 @@ public class LoginActivity extends AppCompatActivity {
     //Explicit ประกาศตัวแปร
     EditText nameEditText,usernameEditText, passwordEditText;
     Button loginButton;
+    String nameString;
+
+    @Override
+    public boolean enterPictureInPictureMode(@NonNull PictureInPictureParams params) {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "ดีจ้า",Toast.LENGTH_SHORT).show();
+                nameString = nameEditText.getText().toString().trim();
+                Toast.makeText(getApplicationContext(), "Hello " +  nameString,Toast.LENGTH_SHORT).show();
             }
         });
     }//method onCreate
